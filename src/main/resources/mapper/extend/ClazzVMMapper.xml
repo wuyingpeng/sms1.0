@@ -26,6 +26,12 @@
   		property="grade" 
   		select="com.briup.app02.dao.GradeMapper.findById">
   	</association>
+  	<association  
+  		column="user_id" 
+  		property="user" 
+  		select="com.briup.app02.dao.UserMapper.findById">
+  	</association>
+  	
   </resultMap>
   
   

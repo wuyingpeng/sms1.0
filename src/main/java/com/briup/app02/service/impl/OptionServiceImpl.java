@@ -22,7 +22,7 @@ public class OptionServiceImpl implements IOptionService {
 	}
 	@Override
 	public Option findById(long id) throws Exception {
-		// TODO Auto-generated method stub
+		
 		return optionMapper.findById(id);
 	}
 	@Override

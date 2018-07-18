@@ -25,7 +25,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
  * Function: TODO ADD FUNCTION. <br/>
  * Reason:	 TODO ADD REASON. <br/>
  * Date:     2018年6月10日 下午6:22:51 <br/>
- * @author   lichunyu
+ * @author   lenovo
  * @version  
  * @since    JDK 1.6
  * @see 	 
@@ -45,8 +45,8 @@ public class Swagger2 {
 	
 	private ApiInfo apiInfo() {
 		return new ApiInfoBuilder()
-				.title("智慧校园，课调系统API")
-				.description("昆山杰普软件科技有限公司，http://www.briup.com")
+				.title("吴滢鹏")
+				.description("学号：5720163229，QQ：1045567123")
 				.termsOfServiceUrl("http://www.briup.com")
 				.version("1.0")
 				.build();
