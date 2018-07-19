@@ -45,7 +45,7 @@ public class Swagger2 {
 	
 	private ApiInfo apiInfo() {
 		return new ApiInfoBuilder()
-				.title("吴滢鹏")
+				.title("软件开发3班：吴滢鹏")
 				.description("学号：5720163229，QQ：1045567123")
 				.termsOfServiceUrl("http://www.briup.com")
 				.version("1.0")
