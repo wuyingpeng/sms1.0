@@ -11,12 +11,32 @@ import org.springframework.web.bind.annotation.RestController;
 import com.briup.app02.bean.Qq;
 import com.briup.app02.service.IQqService;
 import com.briup.app02.util.MsgResponse;
+import com.briup.app02.vm.QqVM;
 
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+
+@Api(description="问卷相关接口")
 @RestController
 @RequestMapping("/qq")
 public class QqController {
 	@Autowired
 	private IQqService qqService;
+	
+	@ApiOperation(value="查询所有问卷",
+			notes="得出问卷调查的信息")
+	
+	@GetMapping("findAllQqVM")
+	public MsgResponse findAllQqVM(){
+		try {
+			List<QqVM> list=qqService.findAllQqVM();
+			return MsgResponse.success("success", list);
+		} catch (Exception e) {
+			e.printStackTrace();
+			return MsgResponse.error(e.getMessage());
+		}
+	}
+	
 	@GetMapping("deleteQqById")
 	public MsgResponse deleteQqById(long id){
 		try {

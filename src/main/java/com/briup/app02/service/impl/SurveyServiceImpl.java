@@ -7,13 +7,24 @@ import org.springframework.stereotype.Service;
 
 import com.briup.app02.bean.Survey;
 import com.briup.app02.dao.SurveyMapper;
+import com.briup.app02.dao.extend.SurveyVMMapper;
 import com.briup.app02.service.ISurveyService;
+import com.briup.app02.vm.SurveyVM;
 
 @Service
 
 public class SurveyServiceImpl implements ISurveyService {
 	@Autowired
 	private SurveyMapper surveyMapper;
+	@Autowired	
+	private SurveyVMMapper surveyVMMapper;
+	
+	@Override
+	public List<SurveyVM> findAllSurveyVM() throws Exception {
+		return surveyVMMapper.findAllSurveyVM();
+	}
+
+	
 	@Override
 	public List<Survey> findAll() throws Exception{
 		List<Survey> list=surveyMapper.findAll();
@@ -22,7 +33,7 @@ public class SurveyServiceImpl implements ISurveyService {
 	}
 	@Override
 	public Survey findById(long id) throws Exception {
-		// TODO Auto-generated method stub
+		
 		return surveyMapper.findById(id);
 	}
 	@Override

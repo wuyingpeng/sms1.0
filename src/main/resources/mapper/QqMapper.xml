@@ -4,19 +4,25 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.briup.app02.dao.QqMapper">
   <select id="findAll" resultType="com.briup.app02.bean.Qq">
-    select * from poll_Qq
+    select * from poll_qq
+  </select>
+  <select id="findByQuestionId" parameterType="long" resultType="com.briup.app02.bean.Qq">
+    select * from poll_qq where question_id = #{id}
+  </select>
+  <select id="findByQuestionnaireId" parameterType="long" resultType="com.briup.app02.bean.Qq">
+    select * from poll_qq where questionnaire_id = #{id}
   </select>
   <select id="findById" parameterType="long" resultType="com.briup.app02.bean.Qq">
-    select * from poll_Qq where id = #{id}
+    select * from poll_qq where id = #{id}
   </select>
   <delete id="deleteById" parameterType="long" >
-    delete from poll_Qq where id = #{id}
+    delete from poll_qq where id = #{id}
   </delete>
   <insert id="save" parameterType="com.briup.app02.bean.Qq">
-    insert into poll_Qq values (null,#{question_id},#{questionnaire_id})
+    insert into poll_qq values (null,#{question_id},#{questionnaire_id})
   </insert>
   <update id="update" parameterType="com.briup.app02.bean.Qq">
-    update poll_Qq 
+    update poll_qq 
     set name=#{name},question_id=#{question_id},questionnaire_id=#{questionnaire_id}
      where  id=#{id}
   </update>

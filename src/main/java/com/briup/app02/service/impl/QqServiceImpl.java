@@ -8,21 +8,32 @@ import org.springframework.stereotype.Service;
 import com.briup.app02.bean.Qq;
 import com.briup.app02.dao.QqMapper;
 import com.briup.app02.service.IQqService;
+import com.briup.app02.vm.QqVM;
+import com.briup.app02.dao.extend.QqVMMapper;
 
 @Service
 
 public class QqServiceImpl implements IQqService {
 	@Autowired
 	private QqMapper qqMapper;
+	
+	@Autowired
+	private QqVMMapper qqVMMapper;
+	
+	@Override
+	public List<QqVM> findAllQqVM() throws Exception {
+		return qqVMMapper.findAllQqVM();
+	}
+	
 	@Override
 	public List<Qq> findAll() throws Exception{
-		List<Qq> list=qqMapper.findAll();
-		return list;
+		
+		return qqMapper.findAll();
 		
 	}
 	@Override
 	public Qq findById(long id) throws Exception {
-		// TODO Auto-generated method stub
+		
 		return qqMapper.findById(id);
 	}
 	@Override

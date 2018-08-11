@@ -22,7 +22,7 @@ public class GradeServiceImpl implements IGradeService {
 	}
 	@Override
 	public Grade findById(long id) throws Exception {
-		// TODO Auto-generated method stub
+		
 		return gradeMapper.findById(id);
 	}
 	@Override

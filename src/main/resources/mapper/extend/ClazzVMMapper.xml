@@ -42,7 +42,7 @@
     delete from poll_clazz where id = #{id}
   </delete>
   <insert id="save" parameterType="com.briup.app02.bean.Clazz">
-    insert into poll_clazz values (null,#{name},#{description},#{grade_id},#{user_id})
+    insert into poll_clazz values (null,#{description},#{grade_id},#{user_id})
   </insert>
   <update id="update" parameterType="com.briup.app02.bean.Clazz">
     update poll_clazz 

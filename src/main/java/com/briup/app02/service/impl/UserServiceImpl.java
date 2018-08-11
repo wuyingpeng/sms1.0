@@ -22,7 +22,7 @@ public class UserServiceImpl implements IUserService {
 	}
 	@Override
 	public User findById(long id) throws Exception {
-		// TODO Auto-generated method stub
+		
 		return userMapper.findById(id);
 	}
 	@Override

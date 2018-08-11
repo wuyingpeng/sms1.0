@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.briup.app02.dao.extend.SurveyVMMapper">
+  <!-- 查询所有班级信息 id,name,description,grade_id,user_id  -->
+  <!-- 
+  	SurveyVM 
+  	column - property	
+  	id-id,
+  	name-name,
+  	description-description 
+  	questionnaire_id - questionnaire 	通过questionnaire_id查找questionnaire
+  	user_id  - user  	通过user_id查找user
+  	course_id  - course  	通过course_id查找course
+  	clazz_id  - clazz  	通过clazz_id查找clazz
+  -->
+  <select id="findAllSurveyVM" resultMap="SurveyVMResultMap">
+    select * from poll_survey
+  </select>
+  
+  <resultMap type="com.briup.app02.vm.SurveyVM" id="SurveyVMResultMap">
+  	<id column="id" property="id"/>
+  	<result column="name" property="name"/>
+  	<result column="description" property="description"/>
+  	<association  
+  		column="questionnaire_id" 
+  		property="questionnaire" 
+  		select="com.briup.app02.dao.QuestionnaireMapper.findById">
+  	</association>
+  	<association  
+  		column="user_id" 
+  		property="user" 
+  		select="com.briup.app02.dao.UserMapper.findById">
+  	</association>
+  	<association  
+  		column="course_id" 
+  		property="course" 
+  		select="com.briup.app02.dao.CourseMapper.findById">
+  	</association>
+  	<association  
+  		column="clazz_id" 
+  		property="clazz" 
+  		select="com.briup.app02.dao.ClazzMapper.findById">
+  	</association>
+  	
+  </resultMap>
+  
+  
+  <select id="findById" parameterType="long" resultType="com.briup.app02.bean.Survey">
+    select * from poll_survey where id = #{id}
+  </select>
+  <delete id="deleteById" parameterType="long" >
+    delete from poll_survey where id = #{id}
+  </delete>
+  <insert id="save" parameterType="com.briup.app02.bean.Survey">
+    insert into poll_survey values (null,#{state},#{average},#{questionnaire_id},#{user_id},#{course_id},#{clazz_id})
+  </insert>
+  <update id="update" parameterType="com.briup.app02.bean.Survey">
+    update poll_survey 
+    set state#{state},average=#{average},questionnaire_id=#{questionnaire_id},user_id=#{user_id},course_id=#{course_id},clazz_id=#{clazz_id}
+     where  id=#{id}
+  </update>
+</mapper>

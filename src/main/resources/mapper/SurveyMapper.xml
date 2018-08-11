@@ -6,6 +6,9 @@
   <select id="findAll" resultType="com.briup.app02.bean.Survey">
     select * from poll_survey
   </select>
+  <select id="findByQuestionnaireId" parameterType="long" resultType="com.briup.app02.bean.Survey">
+    select * from poll_survey where questionnaire_id = #{id}
+  </select>
   <select id="findById" parameterType="long" resultType="com.briup.app02.bean.Survey">
     select * from poll_survey where id = #{id}
   </select>

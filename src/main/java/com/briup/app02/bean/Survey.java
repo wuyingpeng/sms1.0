@@ -3,7 +3,7 @@ package com.briup.app02.bean;
 public class Survey {
 	private Long id;
 	private String state;
-	private Float average;
+	private Double average;
 	private String surveydate;
 	private Long questionnaire_id;
 	private Long user_id;
@@ -21,10 +21,10 @@ public class Survey {
 	public void setState(String state) {
 		this.state = state;
 	}
-	public Float getAverage() {
+	public Double getAverage() {
 		return average;
 	}
-	public void setAverage(Float average) {
+	public void setAverage(Double average) {
 		this.average = average;
 	}
 	public String getSurveydate() {
@@ -58,6 +58,4 @@ public class Survey {
 		this.clazz_id = clazz_id;
 	}
 	
-	
-
 }

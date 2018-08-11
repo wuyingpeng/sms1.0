@@ -7,11 +7,21 @@ import org.springframework.stereotype.Service;
 
 import com.briup.app02.bean.Questionnaire;
 import com.briup.app02.dao.QuestionnaireMapper;
+import com.briup.app02.dao.extend.QuestionnaireVMMapper;
 import com.briup.app02.service.IQuestionnaireService;
+import com.briup.app02.vm.QuestionnaireVM;
 
 @Service
 
 public class QuestionnaireServiceImpl implements IQuestionnaireService {
+	@Autowired
+	private QuestionnaireVMMapper questionnaireVMMapper;
+
+	@Override
+	public List<QuestionnaireVM> findAllQuestionnaireVM() throws Exception {
+		return questionnaireVMMapper.findAllQuestionnaireVM();
+	}
+	
 	@Autowired
 	private QuestionnaireMapper questionnaireMapper;
 	@Override

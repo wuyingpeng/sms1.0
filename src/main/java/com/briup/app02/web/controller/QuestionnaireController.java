@@ -11,12 +11,30 @@ import org.springframework.web.bind.annotation.RestController;
 import com.briup.app02.bean.Questionnaire;
 import com.briup.app02.service.IQuestionnaireService;
 import com.briup.app02.util.MsgResponse;
+import com.briup.app02.vm.QuestionnaireVM;
 
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+
+@Api(description="问卷调查相关接口")
 @RestController
 @RequestMapping("/questionnaire")
 public class QuestionnaireController {
 	@Autowired
 	private IQuestionnaireService questionnaireService;
+	
+	@ApiOperation(value="显示问卷调查",notes="表明问卷调查结果")
+	@GetMapping("findAllQuestionnaireVM")
+	public MsgResponse findAllQuestionnaireVM(){
+		try {
+			List<QuestionnaireVM> list = questionnaireService.findAllQuestionnaireVM();
+			return MsgResponse.success("success", list);
+		} catch (Exception e) {
+			e.printStackTrace();
+			return MsgResponse.error(e.getMessage());
+		}
+	}
+	
 	@GetMapping("deleteQuestionnaireById")
 	public MsgResponse deleteQuestionnaireById(long id){
 		try {

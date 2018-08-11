@@ -11,12 +11,26 @@ import org.springframework.web.bind.annotation.RestController;
 import com.briup.app02.bean.Survey;
 import com.briup.app02.service.ISurveyService;
 import com.briup.app02.util.MsgResponse;
+import com.briup.app02.vm.SurveyVM;
 
+import io.swagger.annotations.Api;
+
+@Api(description="调查相关接口")
 @RestController
 @RequestMapping("/survey")
 public class SurveyController {
 	@Autowired
 	private ISurveyService surveyService;
+	@GetMapping("findAllSurveyVM")
+	public MsgResponse findAllSurveyVM(){
+		try {
+			List<SurveyVM> list=surveyService.findAllSurveyVM();
+			return MsgResponse.success("success", list);
+		} catch (Exception e) {
+			e.printStackTrace();
+			return MsgResponse.error(e.getMessage());
+		}
+	}
 	@GetMapping("deleteSurveyById")
 	public MsgResponse deleteSurveyById(long id){
 		try {

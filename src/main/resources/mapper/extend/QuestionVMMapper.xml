@@ -25,7 +25,11 @@
   	property="options"
   	select="com.briup.app02.dao.OptionMapper.findByQuestionId">
   	</collection>
-  	
+  	<collection 
+  	column="id" 
+  	property="qqs"
+  	select="com.briup.app02.dao.QqMapper.findByQuestionId">
+  	</collection>
   </resultMap>
   
   

@@ -37,7 +37,7 @@ public class ClazzServiceImpl implements IClazzService {
 	
 	@Override
 	public Clazz findById(long id) throws Exception {
-		// TODO Auto-generated method stub
+		
 		return clazzMapper.findById(id);
 	}
 	

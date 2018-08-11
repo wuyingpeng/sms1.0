@@ -2,14 +2,14 @@ package com.briup.app02.vm;
 
 import java.util.List;
 
-import com.briup.app02.bean.Option;
 import com.briup.app02.bean.Qq;
 
-public class QuestionVM {
+
+public class QuestionnaireVM {
 	private Long id;
 	private String name;
-	private String questiontype;
-	private List<Option> options;
+	private String description;
+	private String createdate;
 	private List<Qq> qqs;
 	public Long getId() {
 		return id;
@@ -23,18 +23,17 @@ public class QuestionVM {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public String getQuestiontype() {
-		return questiontype;
+	public String getDescription() {
+		return description;
 	}
-	
-	public void setQuestiontype(String questiontype) {
-		this.questiontype = questiontype;
+	public void setDescription(String description) {
+		this.description = description;
 	}
-	public List<Option> getOptions() {
-		return options;
+	public String getCreatedate() {
+		return createdate;
 	}
-	public void setOptions(List<Option> options) {
-		this.options = options;
+	public void setCreatedate(String createdate) {
+		this.createdate = createdate;
 	}
 	public List<Qq> getQqs() {
 		return qqs;
@@ -42,5 +41,6 @@ public class QuestionVM {
 	public void setQqs(List<Qq> qqs) {
 		this.qqs = qqs;
 	}
+	
 	
 }
